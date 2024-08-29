@@ -9,7 +9,7 @@ const port = 3000;
 app.use(cors());  
 
 
-const credentials = JSON.parse(fs.readFileSync('../Downloads/chatbot-1b12b-2d83e0733efc.json'));
+const credentials = JSON.parse(fs.readFileSync('./chatbot-1b12b-2d83e0733efc.json'));
 
 const auth = new google.auth.GoogleAuth({
   credentials,
