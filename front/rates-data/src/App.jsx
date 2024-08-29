@@ -9,7 +9,7 @@ const App = () => {
   const stx = today.toDateString();
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/sheetdata')
+    axios.get('rates-uo9b-crg5d9o93-davidongoras-projects.vercel.app/api/sheetdata')
       .then(response => {
         console.log('API Response:', response.data);
         setData(response.data);
