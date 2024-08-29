@@ -10,10 +10,10 @@ const app = express();
 const port = 3000;
 app.use(cors());  
 
-
-const chat = require('./chatbot')
+// const chat = require('./chatbot')
 // const credentials = JSON.parse(fs.readFileSync(process.env.CHATBOT_CONFIG));
-const credentials = chat
+// const credentials = chat
+const credentials = process.env.chat
 
 
 
