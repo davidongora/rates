@@ -3,13 +3,19 @@ const { google } = require('googleapis');
 // const path = require('path');
 const fs = require('fs');
 const cors = require('cors');  
+const dotenv = require('dotenv');
+dotenv.config();
 
 const app = express();
 const port = 3000;
 app.use(cors());  
 
 
-const credentials = JSON.parse(fs.readFileSync('./chatbot-1b12b-2d83e0733efc.json'));
+const chat = require('./chatbot')
+// const credentials = JSON.parse(fs.readFileSync(process.env.CHATBOT_CONFIG));
+const credentials = chat
+
+
 
 const auth = new google.auth.GoogleAuth({
   credentials,
@@ -19,8 +25,12 @@ const auth = new google.auth.GoogleAuth({
 // https://docs.google.com/spreadsheets/d/1XJBnMQpz8uL7W_uT7MNq4xQUSVoqL-fZ/edit?usp=sharing&ouid=115003692913186980584&rtpof=true&sd=true
 const sheets = google.sheets({ version: 'v4', auth });
 
+app.get('/', async (req, res) => {
+  res.json({ message: "I am alive" }); 
+});
+
 app.get('/api/sheetdata', async (req, res) => {
-  const spreadsheetId = '18FGO3ML8HPc3B-B8bOmCeZklNoh-4jws9KfDKR7Awno'; 
+  const spreadsheetId = process.env.file_id; 
   const range = 'A1:C12'; 
   try {
     const response = await sheets.spreadsheets.values.get({
