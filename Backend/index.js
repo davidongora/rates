@@ -105,6 +105,7 @@ app.get('/api/sheetdata', async (req, res) => {
     fs.appendFileSync(dataFilePath, fileContent);
 
     res.json(data);
+    console.log('hit sheet data')
   } catch (error) {
     console.error('Error fetching data from Google Sheets:', error);
     res.status(500).send('Error fetching data');
