@@ -36,7 +36,7 @@ try {
 const credentials = chat;
 
 // Check the parsed object
-console.log('Parsed chat object:', chat);
+// console.log('Parsed chat object:', chat);
 // console.log(spreadsheetId ,  'wwwwwwwwwwwwwwwwwwwwwwwwwwwww')
 
 // Initialize GoogleAuth with credentials
@@ -99,8 +99,9 @@ app.get('/api/sheetdata', async (req, res) => {
 
     // Write to file with timestamp
     const dataFilePath = path.join(__dirname, 'data-history.txt');
-    const timestamp = new Date().toISOString();
+    const timestamp = new Date().toString() ;
     const fileContent = `Timestamp: ${timestamp}\nData: ${JSON.stringify(data, null, 2)}\n\n`;
+    
     fs.appendFileSync(dataFilePath, fileContent);
 
     res.json(data);
