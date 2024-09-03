@@ -3,7 +3,7 @@ import axios from 'axios';
 import './style.css'; 
 import { FaDollarSign, FaEuroSign, FaYenSign, FaPoundSign } from 'react-icons/fa'; 
 import { MdCurrencyExchange } from 'react-icons/md';
-import logo from './assets/wapi.png'; 
+import logo from './assets/logo.png'; 
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -26,7 +26,7 @@ const App = () => {
     "GBP-KES": <FaPoundSign />,
     "EUR-KES": <FaEuroSign />,
     "USD-ZAR": <FaDollarSign />,
-    "KES-UGX": <FaDollarSign />
+    "KES-UGX": <FaDollarSign />,
   };
 
   useEffect(() => {
@@ -93,13 +93,14 @@ const App = () => {
     <div className="container">
       <h1 className="header">
       <img src={logo} alt="Logo" style={{ width: '150px', height: 'auto',marginBottom:'170px' }} />
-        <span className="logo">Wapi</span>
-        <span className="sublogo">pay</span>
+        {/* <span className="logo">Wapi</span> */}
+        {/* <span className="sublogo">pay</span> */}
       </h1>
       <h1 className="title">
-        <span>Exchange Rates <MdCurrencyExchange /> </span>
+        <span>Exchange Rates</span>
+        {/* <span>Exchange Rates <MdCurrencyExchange /> </span> */}
         <span>{stx}</span>
-        <h6>{lastRefreshed ? `Last refreshed ${timeAgo(lastRefreshed)}` : ''}</h6>
+        {/* <h6>{lastRefreshed ? `Last refreshed ${timeAgo(lastRefreshed)}` : ''}</h6> */}
       </h1>
 
       <div className="table-container">
