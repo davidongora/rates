@@ -55,7 +55,7 @@ app.get('/', (req, res) => {
 
 // Route to fetch data from Google Sheets and write to file
 app.get('/api/sheetdata', async (req, res) => {
-  const range = 'A1:C12';
+  const range = 'A1:C9';
   
   if (!spreadsheetId) {
     console.error('No spreadsheet ID found in environment variables.');
