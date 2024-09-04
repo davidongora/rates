@@ -50,7 +50,7 @@ const App = () => {
 
     const intervalId = setInterval(() => {
       fetchData();
-    }, 10000); 
+    }, 10000 * 360); 
 
     const timeUpdateId = setInterval(() => {
       setLastRefreshed(prev => prev);
@@ -92,7 +92,7 @@ const App = () => {
   return (
     <div className="container">
       <h1 className="header">
-      <img src={logo} alt="Logo" style={{ width: '150px', height: 'auto',marginBottom:'170px' }} />
+      <img src={logo} alt="Logo" style={{ width: '220px', height: 'auto',marginBottom:'170px',marginTop:'-20px' }} />
         {/* <span className="logo">Wapi</span> */}
         {/* <span className="sublogo">pay</span> */}
       </h1>
@@ -123,17 +123,17 @@ const App = () => {
               {data.length > 0 ? (
                 data.map((row, rowIndex) => (
                   <tr key={rowIndex}>
-                    <td>
+                    <td className='country 'style={{ fontSize: '1.2em' }}>
                       {row["COUNTRY"] && countryIconMap[row["COUNTRY"]] ? (
                         <>
-                          {countryIconMap[row["COUNTRY"]]} {row["COUNTRY"]}
+                        {countryIconMap[row["COUNTRY"]]} {row["COUNTRY"]}
                         </>
                       ) : (
                         <span>No Icon</span>
                       )}
                     </td>
-                    <td>{row["BUY"]}</td>
-                    <td>{row["SELL"]}</td>
+                    <td className='country 'style={{ fontSize: '1.2em',fontWeight:'bold'}}>{row["BUY"]}</td>
+                    <td className='country 'style={{ fontSize: '1.2em',fontWeight:'bold'}}>{row["SELL"]}</td>
                   </tr>
                 ))
               ) : (
