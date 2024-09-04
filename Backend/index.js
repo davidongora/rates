@@ -1,7 +1,7 @@
 const express = require('express');
 const { google } = require('googleapis');
-const fs = require('fs');
-const path = require('path');
+// const fs = require('fs');
+// const path = require('path');
 const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
@@ -115,18 +115,18 @@ app.get('/', async (req, res) => {
 
 
 // Route to read history from file
-app.get('/rates-history', (req, res) => {
-  const dataFilePath = path.join(__dirname, 'data-history.txt');
+// app.get('/rates-history', (req, res) => {
+//   const dataFilePath = path.join(__dirname, 'data-history.txt');
 
-  fs.readFile(dataFilePath, 'utf8', (err, data) => {
-    if (err) {
-      console.error('Error reading file:', err);
-      res.status(500).send('Error reading data from file');
-      return;
-    }
-    res.send(data);
-  });
-});
+//   fs.readFile(dataFilePath, 'utf8', (err, data) => {
+//     if (err) {
+//       console.error('Error reading file:', err);
+//       res.status(500).send('Error reading data from file');
+//       return;
+//     }
+//     res.send(data);
+//   });
+// });
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
