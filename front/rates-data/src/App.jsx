@@ -1,19 +1,16 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import './style.css'; 
-import { FaDollarSign, FaEuroSign, FaYenSign, FaPoundSign } from 'react-icons/fa'; 
+import './style.css';
+import { FaDollarSign, FaEuroSign, FaYenSign, FaPoundSign } from 'react-icons/fa';
 import { MdCurrencyExchange } from 'react-icons/md';
-import logo from './assets/logo.png'; 
-
+import logo from './assets/logo.png';
 const App = () => {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [lastRefreshed, setLastRefreshed] = useState(null); 
-
+  const [lastRefreshed, setLastRefreshed] = useState(null);
   const today = new Date();
   const stx = today.toDateString();
-
   const countryIconMap = {
     "USD-UGX": <FaDollarSign />,
     "USD-KES": <FaDollarSign />,
@@ -28,7 +25,6 @@ const App = () => {
     "USD-ZAR": <FaDollarSign />,
     "KES-UGX": <FaDollarSign />,
   };
-
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -36,32 +32,27 @@ const App = () => {
         const response = await axios.get('http://localhost:3000/api/sheetdata');
         console.log('API Response:', response.data);
         setData(response.data);
-        setError(null); 
-        setLastRefreshed(new Date()); 
+        setError(null);
+        setLastRefreshed(new Date());
       } catch (error) {
         console.error('Error fetching data:', error);
-        setError('Error fetching data'); 
+        setError('Error fetching data');
       } finally {
         setLoading(false);
       }
     };
-
     fetchData();
-
     const intervalId = setInterval(() => {
       fetchData();
-    }, 10000 * 360); 
-
+    }, 10000 * 360);
     const timeUpdateId = setInterval(() => {
       setLastRefreshed(prev => prev);
-    }, 1000); 
-
+    }, 1000);
     return () => {
       clearInterval(intervalId);
       clearInterval(timeUpdateId);
     };
   }, []);
-
   const timeAgo = (date) => {
     if (!date) return '';
     const now = new Date();
@@ -88,7 +79,6 @@ const App = () => {
     const years = Math.floor(months / 12);
     return `${years} years ago`;
   };
-
   return (
     <div className="container">
       <h1 className="header">
@@ -102,7 +92,6 @@ const App = () => {
         <span>{stx}</span>
         {/* <h6>{lastRefreshed ? `Last refreshed ${timeAgo(lastRefreshed)}` : ''}</h6> */}
       </h1>
-
       <div className="table-container">
         {loading ? (
           <div className="spinner">
@@ -145,7 +134,6 @@ const App = () => {
           </table>
         )}
       </div>
-
       <span className="footer">
         Licensed & Regulated by the Central Bank of Kenya & the Bank of Uganda
       </span>
@@ -153,5 +141,4 @@ const App = () => {
     </div>
   );
 };
-
 export default App;
