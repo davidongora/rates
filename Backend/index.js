@@ -48,13 +48,13 @@ const auth = new google.auth.GoogleAuth({
 const sheets = google.sheets({ version: 'v4', auth });
 
 // Route to check server status
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.json({ message: "I am alive" });
   console.log('Server is running');
 });
 
 // Route to fetch data from Google Sheets and write to file
-app.get('/api/sheetdata', async (req, res) => {
+app.get('/', async (req, res) => {
   const range = 'A1:C9';
   
   if (!spreadsheetId) {
