@@ -25,17 +25,19 @@ const App = () => {
     "USD-ZAR": <FaDollarSign />,
     "KES-UGX": <FaDollarSign />,
   };
+
+  const url = import.meta.env.VITE_URL
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get('http://localhost:3000/api/sheetdata');
-        console.log('API Response:', response.data);
+        const response = await axios.get(url);
+        // console.log('API Response:', response.data);
         setData(response.data);
         setError(null);
         setLastRefreshed(new Date());
       } catch (error) {
-        console.error('Error fetching data:', error);
+        // console.error('Error fetching data:', error);
         setError('Error fetching data');
       } finally {
         setLoading(false);
