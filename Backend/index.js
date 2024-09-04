@@ -108,7 +108,7 @@ app.get('/', async (req, res) => {
     console.log('hit sheet data')
   } catch (error) {
     console.error('Error fetching data from Google Sheets:', error);
-    res.status(500).send('Error fetching data');
+    res.status(500).send('Error fetching data', error);
   }
 });
 
