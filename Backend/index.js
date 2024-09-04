@@ -20,7 +20,7 @@ app.use(cors());
 
 // const chat = process.env.chat;;
 // console.log(credentials, 'crdentials ........iiiiiiiiiiiiiiiiiiiiiiii');
-const spreadsheetId = process.env.FILE_ID;
+const spreadsheetId = process.env.FILE_ID1;
 
 
 const chatJsonString = process.env.CHATBOT_CONFIG;
