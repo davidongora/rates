@@ -27,6 +27,8 @@ const App = () => {
   };
 
   const url = import.meta.env.VITE_URL
+  console.log (url, 'jjjjjjj')
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
