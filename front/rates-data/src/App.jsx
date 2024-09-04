@@ -26,14 +26,16 @@ const App = () => {
     "KES-UGX": <FaDollarSign />,
   };
 
-  const url = import.meta.env.VITE_URL
-  console.log (url, 'jjjjjjj')
+  // const url = import.meta.env.VITE_URL
+  // console.log (url, 'jjjjjjj')
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(url);
+        // const response = await axios.get(url);
+        const response = await axios.get('https://rates-uo9b.vercel.app/);
+
         // console.log('API Response:', response.data);
         setData(response.data);
         setError(null);
