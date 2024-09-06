@@ -34,7 +34,7 @@ const App = () => {
       setLoading(true);
       try {
         // const response = await axios.get(url);
-        const response = await axios.get('https://rates-uo9b.vercel.app/);
+        const response = await axios.get('https://rates-uo9b.vercel.app/');
 
         // console.log('API Response:', response.data);
         setData(response.data);
