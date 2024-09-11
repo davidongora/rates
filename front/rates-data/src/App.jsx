@@ -24,6 +24,10 @@ const App = () => {
     "EUR-KES": <FaEuroSign />,
     "USD-ZAR": <FaDollarSign />,
     "KES-UGX": <FaDollarSign />,
+    "GBP-KES": <FaPoundSign />,
+    "EUR-KES": <FaEuroSign />,
+    "USD-ZAR": <FaDollarSign />,
+    "KES-UGX": <FaDollarSign />
   };
 
   // const url = import.meta.env.VITE_URL
