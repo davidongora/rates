@@ -133,13 +133,13 @@ const App = () => {
                 data.map((row, rowIndex) => (
                   <tr key={rowIndex}>
                     <td className='country 'style={{ fontSize: '1.2em' }}>
-                      {row["COUNTRY"] && countryIconMap[row["COUNTRY"]] ? (
-                        <>
-                        {countryIconMap[row["COUNTRY"]]} {row["COUNTRY"]}
-                        </>
-                      ) : (
-                        <span>No Icon</span>
-                      )}
+                      {row["COUNTRY"] && countryIconMap[row["COUNTRY"].trim().toUpperCase()] ? (
+  <>
+    {countryIconMap[row["COUNTRY"].trim().toUpperCase()]} {row["COUNTRY"]}
+  </>
+) : (
+  <span>No Icon</span>
+)}
                     </td>
                     <td className='country 'style={{ fontSize: '1.2em',fontWeight:'bold'}}>{row["BUY"]}</td>
                     <td className='country 'style={{ fontSize: '1.2em',fontWeight:'bold'}}>{row["SELL"]}</td>
