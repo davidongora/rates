@@ -24,20 +24,20 @@ const App = () => {
     "EUR-KES": <FaEuroSign />,
     "USD-ZAR": <FaDollarSign />,
     "KES-UGX": <FaDollarSign />,
-    "GBP-KES": <FaPoundSign />,
-    "EUR-KES": <FaEuroSign />,
-    "USD-ZAR": <FaDollarSign />,
-    "KES-UGX": <FaDollarSign />,
-    "USD-CNY": <FaDollarSign />,
-    "CNY-KES": <FaYenSign />,
-    "GBP-KES": <FaPoundSign />,
-    "EUR-KES": <FaEuroSign />,
-    "USD-ZAR": <FaDollarSign />,
-    "KES-UGX": <FaDollarSign />,
-    "GBP-KES": <FaPoundSign />,
-    "EUR-KES": <FaEuroSign />,
-    "USD-ZAR": <FaDollarSign />,
-    "KES-UGX": <FaDollarSign />,
+    "GBP-KES1": <FaPoundSign />,
+    "EUR-KES1": <FaEuroSign />,
+    // "USD-ZAR": <FaDollarSign />,
+    // "KES-UGX": <FaDollarSign />,
+    // "USD-CNY": <FaDollarSign />,
+    // "CNY-KES": <FaYenSign />,
+    // "GBP-KES": <FaPoundSign />,
+    // "EUR-KES": <FaEuroSign />,
+    // "USD-ZAR": <FaDollarSign />,
+    // "KES-UGX": <FaDollarSign />,
+    // "GBP-KES": <FaPoundSign />,
+    // "EUR-KES": <FaEuroSign />,
+    // "USD-ZAR": <FaDollarSign />,
+    // "KES-UGX": <FaDollarSign />,
   };
 
   // const url = import.meta.env.VITE_URL
@@ -129,28 +129,30 @@ const App = () => {
               </tr>
             </thead>
             <tbody>
-              {data.length > 0 ? (
-                data.map((row, rowIndex) => (
-                  <tr key={rowIndex}>
-                    <td className='country 'style={{ fontSize: '1.2em' }}>
-                      {row["COUNTRY"] && countryIconMap[row["COUNTRY"].trim().toUpperCase()] ? (
-  <>
-    {countryIconMap[row["COUNTRY"].trim().toUpperCase()]} {row["COUNTRY"]}
-  </>
-) : (
-  <span>No Icon</span>
-)}
-                    </td>
-                    <td className='country 'style={{ fontSize: '1.2em',fontWeight:'bold'}}>{row["BUY"]}</td>
-                    <td className='country 'style={{ fontSize: '1.2em',fontWeight:'bold'}}>{row["SELL"]}</td>
-                  </tr>
-                ))
-              ) : (
-                <tr>
-                  <td colSpan="3">No data available</td>
-                </tr>
-              )}
-            </tbody>
+  {data.length > 0 ? (
+    data.map((row, rowIndex) => (
+      
+      <tr key={rowIndex}>
+        <td className='country' style={{ fontSize: '1.2em' }}>
+          {row[""] && countryIconMap[row[""]] ? (
+            <>
+              {countryIconMap[row[""]]} {row[""]}
+            </>
+          ) : (
+            <span>No Icon</span>
+          )}
+        </td>
+        <td className='country' style={{ fontSize: '1.2em', fontWeight: 'bold' }}>{row["BUY"]}</td>
+        <td className='country' style={{ fontSize: '1.2em', fontWeight: 'bold' }}>{row["SELL"]}</td>
+      </tr>
+    ))
+  ) : (
+    <tr>
+      <td colSpan="3">No data available</td>
+    </tr>
+  )}
+</tbody>
+
           </table>
         )}
       </div>
